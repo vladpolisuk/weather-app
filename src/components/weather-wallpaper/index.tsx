@@ -1,14 +1,24 @@
-import React, { FC } from "react"
+import React, { FC, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../hooks/redux";
+import { getRandomWeatherData } from "../../store/weatherReducer/reducer";
+import { getWeatherWallpaperUrl } from "../../store/weatherReducer/selectors";
 
 const WeatherWallpaper: FC = ({ children }) => {
-    const image = 'https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80';
+    const dispatch = useDispatch()
+    const wallpaperUrl = useAppSelector(getWeatherWallpaperUrl)
+
+    useEffect(() => {
+        dispatch(getRandomWeatherData())
+    }, [dispatch])
 
     return (
-        <div
-            style={{ backgroundImage: `url(${image})` }}
-            className='w-screen bg-cover object-cover bg-no-repeat bg-center 
-            bg-origin-border text-white grid grid-cols-[5fr_3fr] h-screen'>
-            {children}
+        <div style={{ backgroundImage: wallpaperUrl ? `url(${wallpaperUrl})` : '' }}
+            className="bg-cover object-cover bg-no-repeat bg-center bg-origin-border">
+            <div className='grid xl:grid-cols-[5fr_3fr] bg-black/50 
+                grid-cols-[1fr] w-screen h-screen text-white'>
+                {children}
+            </div>
         </div>
     )
 }
