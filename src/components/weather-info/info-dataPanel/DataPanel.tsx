@@ -36,7 +36,7 @@ const Skeleton = () => {
             flex items-center justify-between w-full max-w-[600px]'>
             <div className='flex items-center'>
                 <div className='animate-pulse bg-white/10 w-24 h-8 rounded mr-2'></div>
-                <div className='animate-pulse bg-white/10 w-16 h-8 roudned'></div>
+                <div className='animate-pulse bg-white/10 w-16 h-8 rounded'></div>
             </div>
             <div className='flex items-center'>
                 <div className='animate-pulse bg-white/10 w-16 h-8 rounded mr-2'></div>
