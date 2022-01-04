@@ -1,9 +1,10 @@
 import { weatherAPI } from '../../api/weatherAPI';
 import { ThunkType } from '../models';
 import { WeatherActions, weatherActions, WeatherActionsType } from './actions';
-import { WeatherReducer } from './models';
+import { WeatherReducer, WeatherState, WeatherType } from './models';
 
-export const initialState = {
+export const initialState: WeatherState = {
+	error: '',
 	region: '',
 	country: '',
 	cityName: '',

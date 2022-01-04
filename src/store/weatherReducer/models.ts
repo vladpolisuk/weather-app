@@ -1,6 +1,7 @@
 import { WeatherActionsType } from './actions';
 
 export type WeatherState = {
+	error: string;
 	region: string;
 	country: string;
 	cityName: string;
@@ -14,5 +15,5 @@ export type WeatherState = {
 	lastUpdatedDate: string;
 };
 
-export type WeatherType = Omit<WeatherState, 'wallpaper'>;
+export type WeatherType = Omit<WeatherState, 'wallpaper' | 'error'>;
 export type WeatherReducer = (state: WeatherState | undefined, actions: WeatherActionsType) => WeatherState;
