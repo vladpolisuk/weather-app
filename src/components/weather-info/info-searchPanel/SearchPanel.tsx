@@ -8,7 +8,7 @@ export const SearchPanel = () => {
     const dispatch = useDispatch();
 
     const onSubmit = (values: { cityName: string }) => {
-        dispatch(getWeatherByCityName(values.cityName))
+        if (values.cityName) dispatch(getWeatherByCityName(values.cityName))
     }
 
     const inputStyles = `hover:bg-black/70 active:shadow-[0_0_0_2px_#505050] focus:shadow-[0_0_0_2px_#454545] 
