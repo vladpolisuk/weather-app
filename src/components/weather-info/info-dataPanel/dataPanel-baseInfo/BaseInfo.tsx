@@ -17,8 +17,8 @@ export const BaseInfo: FC<Props> = ({ cityName, country, shortWeather, iconURL }
                 <div className='flex items-center min-w-0 mr-5'>
                     <p className='text-lg font-bold mr-3'>{cityName}</p>
                     <div className='flex relative items-center text-slate-400 flex-1 min-w-0'>
-                        <p className='text-lg font-thin mr-1 truncate'>{country}</p>
-                        <FaLocationArrow size='14px' />
+                        <p className='hidden xs:inline text-lg font-thin mr-1 truncate'>{country}</p>
+                        <FaLocationArrow display='block' size='14px' />
                         <a style={{ contentVisibility: 'hidden' }}
                             rel='noreferrer' target="_blank"
                             className='absolute w-full h-full'
