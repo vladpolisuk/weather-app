@@ -4,19 +4,23 @@ export const getWeatherWallpaperUrl = (state: AppState) => {
 	return state.weather.wallpaper;
 };
 
-export const getCityName = (state: AppState) => {
+export const getWeatherCityName = (state: AppState) => {
 	return state.weather.cityName;
 };
 
-export const getLocalDate = (state: AppState) => {
+export const getWeatherCountry = (state: AppState) => {
+	return state.weather.country;
+};
+
+export const getWeatherLocalDate = (state: AppState) => {
 	return state.weather.localDate;
 };
 
-export const getLocalTime = (state: AppState) => {
+export const getWeatherLocalTime = (state: AppState) => {
 	return state.weather.localTime;
 };
 
-export const getShortWeather = (state: AppState) => {
+export const getWeatherShortWeather = (state: AppState) => {
 	return state.weather.shortWeather;
 };
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useAppSelector } from '../../../hooks/redux'
 import {
-    getCityName, getLocalDate, getLocalTime,
-    getShortWeather, getWeatherIconUrl
+    getWeatherCityName, getWeatherIconUrl, getWeatherLocalDate,
+    getWeatherLocalTime, getWeatherShortWeather
 } from '../../../store/weatherReducer/selectors'
 import { WithSkeleton } from '../../weather-withSkeleton/WithSkeleton'
 import { CityDate } from './city-date/CityDate'
@@ -11,10 +11,10 @@ import { CityShortWeather } from './city-shortWeather/CityShortWeather'
 import { WeatherIcon } from './city-weatherIcon/WeatherIcon'
 
 export const WeatherCity = () => {
-    const cityName = useAppSelector(getCityName);
-    const localDate = useAppSelector(getLocalDate);
-    const localTime = useAppSelector(getLocalTime);
-    const shortWeather = useAppSelector(getShortWeather);
+    const cityName = useAppSelector(getWeatherCityName);
+    const localDate = useAppSelector(getWeatherLocalDate);
+    const localTime = useAppSelector(getWeatherLocalTime);
+    const shortWeather = useAppSelector(getWeatherShortWeather);
     const weatherIconUrl = useAppSelector(getWeatherIconUrl);
 
     return (
