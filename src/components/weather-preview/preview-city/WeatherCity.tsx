@@ -18,8 +18,8 @@ export const WeatherCity = () => {
     const weatherIconUrl = useAppSelector(getWeatherIconUrl);
 
     return (
-        <div className='xl:mt-0 xl:mb-36 xl:p-5 mb-20 mt-5 px-4 flex flex-col items-start justify-start'>
-            <div className='flex items-center justify-start'>
+        <div className='xl:mt-0 xl:mb-36 xl:p-5 mb-20 mt-5 px-4 flex flex-col items-center xl:items-start justify-start'>
+            <div className='flex items-center xl:justify-start'>
                 <WithSkeleton
                     condition={cityName}
                     className="h-12 bg-white/20 w-64 rounded mr-2">
@@ -28,14 +28,15 @@ export const WeatherCity = () => {
 
                 <WithSkeleton
                     condition={weatherIconUrl}
-                    className="h-12 bg-white/20 w-12 rounded-full">
+                    className="h-12 bg-white/20 w-12 rounded-full hidden xs:block">
                     <WeatherIcon iconUrl={weatherIconUrl} description={shortWeather} />
                 </WithSkeleton>
             </div>
-            <div className='flex'>
+            <div className='flex flex-col items-center justify-center
+                w-full xs:flex-row xs:items-start xs:justify-start'>
                 <WithSkeleton
                     condition={localDate || localTime}
-                    className='w-36 h-6 bg-white/20 rounded mt-3 mr-2'>
+                    className='w-36 h-6 bg-white/20 rounded mt-3 xs:mr-2 mb-2 xs:mb-0'>
                     <CityDate date={localDate} time={localTime} />
                 </WithSkeleton>
 

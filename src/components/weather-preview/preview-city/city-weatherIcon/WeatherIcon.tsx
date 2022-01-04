@@ -6,5 +6,5 @@ interface Props {
 }
 
 export const WeatherIcon: FC<Props> = ({ iconUrl, description }) => {
-    return <img src={iconUrl} alt={description} className='w-24 mt-3' />
+    return <img src={iconUrl} alt={description} className='hidden xs:block xs:w-20 md:w-24 mt-3' />
 }
