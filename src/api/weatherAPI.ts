@@ -37,10 +37,11 @@ class WeatherAPI {
 	}
 
 	async getUrlOfWallpaper(wallpaperName: string, cityName: string) {
-		const {
-			request: { responseURL },
-		} = await weatherWallpaperInstance.get(`?${wallpaperName.toLowerCase()},${cityName}`);
-		return responseURL;
+		if (!wallpaperName || !cityName) return 'https://i.ibb.co/TDQhLvz/pug-dog-with-yellow-constructor.jpg';
+		const keyWord = wallpaperName.toLowerCase();
+		const location = cityName.toLowerCase();
+		const response = await weatherWallpaperInstance.get(`?${keyWord},${location}`);
+		return response.request.responseURL;
 	}
 }
 
