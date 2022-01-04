@@ -1,5 +1,5 @@
 import { weatherAPI } from '../../api/weatherAPI';
-import { ThunkType } from '../models';
+import { AppThunkDispatch, ThunkType } from '../models';
 import { WeatherActions, weatherActions, WeatherActionsType } from './actions';
 import { WeatherReducer, WeatherState, WeatherType } from './models';
 
@@ -31,21 +31,23 @@ export const weatherReducer: WeatherReducer = (state = initialState, action) => 
 	}
 };
 
+const setWeatherData = (dispatch: AppThunkDispatch<WeatherActionsType>, weatherData: WeatherType) => {
+	dispatch(weatherActions.setWeatherData(weatherData));
+	const city = weatherData.shortRegion.split('/')[1];
+	dispatch(getWeatherWallpaper(weatherData.shortWeather, city));
+};
+
 export const getRandomWeatherData = (): ThunkType<WeatherActionsType> => {
 	return async (dispatch) => {
 		const randomWeatherData = await weatherAPI.getRandomWeather();
-		dispatch(weatherActions.setWeatherData(randomWeatherData));
-		const city = randomWeatherData.shortRegion.split('/')[1];
-		dispatch(getWeatherWallpaper(randomWeatherData.shortWeather, city));
+		setWeatherData(dispatch, randomWeatherData);
 	};
 };
 
 export const getWeatherByCityName = (cityName: string): ThunkType<WeatherActionsType> => {
 	return async (dispatch) => {
 		const weatherData = await weatherAPI.getWeatherByCityName(cityName);
-		dispatch(weatherActions.setWeatherData(weatherData));
-		const city = weatherData.shortRegion.split('/')[1];
-		dispatch(getWeatherWallpaper(weatherData.shortWeather, city));
+		setWeatherData(dispatch, weatherData);
 	};
 };
 
