@@ -12,17 +12,18 @@ export const SearchPanel = () => {
     }
 
     const inputStyles = `hover:bg-black/70 active:shadow-[0_0_0_2px_#505050] focus:shadow-[0_0_0_2px_#454545] 
-                        outline-none ease-in-out px-5 py-1 pb-[6px] bg-black/50 w-full sticky transition
-                        top-0 rounded-full mr-2`
+                        outline-none ease-in-out px-5 py-1 pb-[6px] bg-black/50 w-full transition rounded-full mr-2`
 
     const buttonStyles = `bg-black/50 w-10 h-10 flex items-center min-w-100% transition easy-in-out 
                         justify-center rounded-full hover:shadow-[0_0_0_2px_#454545] focus:shadow-[0_0_0_2px_#454545] 
                         outline-none hover:bg-black/70 active:scale-95 active:shadow-[0_0_0_2px_#505050]`
 
+    const formStyles = `xl:sticky xl:top-0 flex align-items justify-between h-[40px] box-content pt-8 pb-8 xl:pt-10 xl:pb-6 px-8 `
+
     return (
         <Formik initialValues={{ cityName: '' }} onSubmit={onSubmit} >
             {({ handleSubmit, handleChange, handleBlur, values }) => (
-                <form onSubmit={handleSubmit} className='flex align-items justify-between pt-10 px-8 pb-6'>
+                <form onSubmit={handleSubmit} className={formStyles}>
                     <input
                         type='search'
                         name='cityName'
