@@ -4,6 +4,7 @@ import {
     getCityName, getLocalDate, getLocalTime,
     getShortWeather, getWeatherIconUrl
 } from '../../../store/weatherReducer/selectors'
+import { WithSkeleton } from '../../weather-withSkeleton/WithSkeleton'
 import { CityDate } from './city-date/CityDate'
 import { CityName } from './city-name/CityName'
 import { CityShortWeather } from './city-shortWeather/CityShortWeather'
@@ -19,25 +20,30 @@ export const WeatherCity = () => {
     return (
         <div className='xl:mt-0 xl:mb-36 xl:p-5 mb-20 mt-5 px-4 flex flex-col items-start justify-start'>
             <div className='flex items-center justify-start'>
-                {cityName
-                    ? <CityName name={cityName} />
-                    : <div className="animate-pulse h-12 bg-white/20 w-64 rounded mr-2"></div>}
+                <WithSkeleton
+                    condition={cityName}
+                    className="h-12 bg-white/20 w-64 rounded mr-2">
+                    <CityName name={cityName} />
+                </WithSkeleton>
 
-                {weatherIconUrl
-                    ? <WeatherIcon iconUrl={weatherIconUrl} description={shortWeather} />
-                    : <div className="animate-pulse h-12 bg-white/20 w-12 rounded-full"></div>}
+                <WithSkeleton
+                    condition={weatherIconUrl}
+                    className="h-12 bg-white/20 w-12 rounded-full">
+                    <WeatherIcon iconUrl={weatherIconUrl} description={shortWeather} />
+                </WithSkeleton>
             </div>
             <div className='flex'>
-                {localDate || localTime
-                    ? <CityDate date={localDate} time={localTime} />
-                    : <div className='animate-pulse w-48 flex mt-3'>
-                        <div className='w-24 h-6 bg-white/20 rounded mr-1'></div>
-                        <div className='w-24 h-6 bg-white/20 rounded mr-1'></div>
-                    </div>}
+                <WithSkeleton
+                    condition={localDate || localTime}
+                    className='w-36 h-6 bg-white/20 rounded mt-3 mr-2'>
+                    <CityDate date={localDate} time={localTime} />
+                </WithSkeleton>
 
-                {shortWeather
-                    ? <CityShortWeather weather={shortWeather} />
-                    : <div className="animate-pulse h-6 bg-white/20 w-16 rounded mt-3"></div>}
+                <WithSkeleton
+                    condition={shortWeather}
+                    className="h-6 bg-white/20 w-16 rounded mt-3">
+                    <CityShortWeather weather={shortWeather} />
+                </WithSkeleton>
             </div>
         </div>
     )
