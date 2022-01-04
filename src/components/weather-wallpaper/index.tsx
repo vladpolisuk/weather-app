@@ -12,11 +12,13 @@ const WeatherWallpaper: FC = ({ children }) => {
         dispatch(getRandomWeatherData())
     }, [dispatch])
 
+    const childrenStyles = `grid xl:grid-cols-[5fr_3fr] bg-black/50 grid-cols-[1fr] w-screen h-screen text-white`
+    const parentStyles = `bg-black/70 bg-cover object-cover bg-no-repeat bg-center bg-origin-border`
+    const backgroundImage = wallpaperUrl ? `url(${wallpaperUrl})` : '';
+
     return (
-        <div style={{ backgroundImage: wallpaperUrl ? `url(${wallpaperUrl})` : '' }}
-            className="bg-black/70 bg-cover object-cover bg-no-repeat bg-center bg-origin-border">
-            <div className='grid xl:grid-cols-[5fr_3fr] bg-black/50 
-                grid-cols-[1fr] w-screen h-screen text-white'>
+        <div className={parentStyles} style={{ backgroundImage }}>
+            <div className={childrenStyles}>
                 {children}
             </div>
         </div>
