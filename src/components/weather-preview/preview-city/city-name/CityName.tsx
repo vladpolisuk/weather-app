@@ -5,8 +5,8 @@ interface Props {
 }
 
 export const CityName: FC<Props> = ({ name }) => {
-    const cityNameStyles = `text-shadow-name text-5xl xs:text-6xl text-center 
-            xs:text-left md:text-7xl font-extrabold leading-normal xl:mr-2`
+    const cityNameStyles = `text-shadow-name text-center text-[56px] leading-[1]
+            font-extrabold sm:text-left xs:text-6xl md:text-7xl xl:mr-2`
 
     return (
         <h2 className={cityNameStyles}>
