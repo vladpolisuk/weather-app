@@ -7,7 +7,7 @@ interface Props {
 
 export const WeatherIcon: FC<Props> = ({ iconUrl, description }) => {
     return (
-        <div aria-label={description} className='w-[80px] h-[70px] bg-no-repeat bg-center bg-cover hidden xs:block'
+        <div aria-label={description} className='w-[80px] h-[70px] bg-no-repeat bg-center bg-cover'
             style={{ backgroundImage: `url(${iconUrl})` }}>
         </div>
     )

@@ -32,7 +32,7 @@ export const WeatherCity = () => {
 
                 <WithSkeleton
                     condition={weatherIconUrl}
-                    className="h-12 bg-white/20 w-12 rounded-full hidden xs:block">
+                    className="h-12 bg-white/20 w-12 rounded-md mb-3 sm:mb-0">
                     <WeatherIcon iconUrl={weatherIconUrl} description={shortWeather} />
                 </WithSkeleton>
             </div>
