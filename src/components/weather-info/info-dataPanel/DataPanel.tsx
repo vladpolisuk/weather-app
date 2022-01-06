@@ -6,6 +6,7 @@ import {
 } from '../../../store/weatherReducer/selectors'
 import { WithCustomSkeleton } from '../../weather-withCustomSkeleton/WithCustomSkeleton'
 import { BaseInfo } from './dataPanel-baseInfo/BaseInfo'
+import { BaseInfoSkeleton } from './dataPanel-baseInfo/BaseInfoSkeleton'
 
 export const DataPanel = () => {
     const cityName = useAppSelector(getWeatherCityName);
@@ -18,7 +19,7 @@ export const DataPanel = () => {
             <div className='pb-6 px-2'>
                 <WithCustomSkeleton
                     condition={cityName}
-                    skeleton={<Skeleton />}>
+                    skeleton={<BaseInfoSkeleton />}>
                     <BaseInfo
                         country={country}
                         iconURL={iconURL}

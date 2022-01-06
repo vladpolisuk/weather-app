@@ -48,3 +48,4 @@ export const BaseInfo: FC<Props> = ({ cityName, country, shortWeather, iconURL }
         </div>
     )
 }
+
