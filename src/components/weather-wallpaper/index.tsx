@@ -12,8 +12,12 @@ const WeatherWallpaper: FC = ({ children }) => {
         dispatch(getRandomWeatherData())
     }, [dispatch])
 
-    const parentStyles = `h-screen bg-fixed bg-black/70 bg-cover object-cover bg-no-repeat bg-center bg-origin-border`
-    const childrenStyles = `h-full grid xl:grid-cols-[5fr_3fr] bg-black/50 grid-cols-[1fr] xl:w-screen xl:h-screen text-white`
+    const parentStyles = `h-screen bg-fixed bg-black/70 bg-cover object-cover 
+                bg-no-repeat bg-center bg-origin-border`
+
+    const childrenStyles = `h-full grid bg-black/50 grid-cols-[1fr] 
+                text-white xl:w-screen xl:h-screen lg:grid-cols-[5fr_3fr]`
+
     const backgroundImage = wallpaperUrl ? `url(${wallpaperUrl})` : '';
 
     return (
