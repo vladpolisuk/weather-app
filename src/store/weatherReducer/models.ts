@@ -13,6 +13,7 @@ export type WeatherState = {
 	weatherIconUrl: string;
 	lastUpdatedTime: string;
 	lastUpdatedDate: string;
+	currentTemperatureC: number;
 };
 
 export type WeatherType = Omit<WeatherState, 'wallpaper' | 'error'>;

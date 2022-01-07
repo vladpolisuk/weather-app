@@ -4,6 +4,7 @@ export const pullOutWeatherData = (data: any): WeatherType => {
 	const {
 		location: { name, region, country, tz_id, localtime },
 		current: {
+			temp_c,
 			last_updated,
 			condition: { text, icon },
 		},
@@ -26,6 +27,7 @@ export const pullOutWeatherData = (data: any): WeatherType => {
 		lastUpdatedTime,
 		shortRegion: tz_id,
 		shortWeather: text,
+		currentTemperatureC: temp_c,
 	};
 
 	return result;

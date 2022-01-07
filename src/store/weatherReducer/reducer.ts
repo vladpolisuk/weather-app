@@ -16,6 +16,7 @@ export const initialState: WeatherState = {
 	weatherIconUrl: '',
 	lastUpdatedDate: '',
 	lastUpdatedTime: '',
+	currentTemperatureC: 0,
 };
 
 export const weatherReducer: WeatherReducer = (state = initialState, action) => {

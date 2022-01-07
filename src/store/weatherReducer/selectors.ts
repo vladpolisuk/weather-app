@@ -27,3 +27,7 @@ export const getWeatherShortWeather = (state: AppState) => {
 export const getWeatherIconUrl = (state: AppState) => {
 	return state.weather.weatherIconUrl;
 };
+
+export const getCurrentTemperatureC = (state: AppState) => {
+	return state.weather.currentTemperatureC;
+};

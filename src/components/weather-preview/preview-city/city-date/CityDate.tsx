@@ -6,15 +6,21 @@ interface Props {
 }
 
 export const CityDate: FC<Props> = ({ date, time }) => {
+    const dateStyles = `rounded-l-full bg-white flex 
+            items-center justify-center px-3 pl-4 py-[2px] mr-1`;
+
+    const timeStyles = `rounded-r-full bg-white 
+            flex items-center justify-center px-3 pr-4 py-[2px]`
+
     return (
         <div className='flex mb-3 xs:mr-2 xs:mb-0'>
-            <div className='rounded-l-full bg-white pb-[1px] md:pb-[2px] pl-3 pr-2 md:px-3 mr-1'>
-                <p className='text-[14px] leading-[1.7] md:leading-[1.8] font-bold text-black/80'>
+            <div className={dateStyles}>
+                <p className='text-[14px] leading-6 font-bold text-black/80'>
                     {date}
                 </p>
             </div>
-            <div className='rounded-r-full bg-white pb-[2px] pr-3 pl-2 md:px-3'>
-                <p className='text-[14px] leading-[1.7] md:leading-[1.8] font-bold text-black/80'>
+            <div className={timeStyles}>
+                <p className='text-[14px] leading-6 font-bold text-black/80'>
                     {time}
                 </p>
             </div>

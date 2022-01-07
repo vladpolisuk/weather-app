@@ -5,11 +5,12 @@ interface Props {
 }
 
 export const CityShortWeather: FC<Props> = ({ weather }) => {
+    const shortWeatherStyles = `flex items-center justify-center bg-black/40 
+            border-2 h-[28px] rounded-md h-full px-[8px] xs:mr-2`
+
     return (
-        <div className='bg-black/40 border-2 h-[26px] rounded-md inline-block h-full px-[8px]'>
-            <p className='leading-[1.2]'>
-                {weather}
-            </p>
+        <div className={shortWeatherStyles}>
+            <p>{weather}</p>
         </div>
     )
 }
