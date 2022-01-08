@@ -1,14 +1,18 @@
-import React, { FC } from 'react'
-import { FaLocationArrow } from 'react-icons/fa'
+import React from 'react';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { useAppSelector } from '../../../../hooks/redux';
+import {
+    getWeatherCityName, getWeatherCountry,
+    getWeatherIconUrl, getWeatherShortWeather
+} from '../../../../store/weatherReducer/selectors';
+import { InfoBox } from '../dataPanel-infoBox/InfoBox';
 
-interface Props {
-    cityName: string;
-    country: string;
-    shortWeather: string;
-    iconURL: string;
-}
+export const BaseInfo = () => {
+    const country = useAppSelector(getWeatherCountry);
+    const iconURL = useAppSelector(getWeatherIconUrl);
+    const cityName = useAppSelector(getWeatherCityName);
+    const shortWeather = useAppSelector(getWeatherShortWeather);
 
-export const BaseInfo: FC<Props> = ({ cityName, country, shortWeather, iconURL }) => {
     const shortWeatherStyles = `bg-white/90 text-black/90 font-bold px-2 pb-[2px] 
                     rounded mr-1 text-[14px] leading-[1.5] xs:text-[16px]`;
 
@@ -22,14 +26,14 @@ export const BaseInfo: FC<Props> = ({ cityName, country, shortWeather, iconURL }
                     w-full sm:justify-start sm:w-[inherit] sm:mr-5`;
 
     return (
-        <div className='bg-black/30 px-5 py-3 rounded-md mb-3 lg:max-w-[600px]'>
+        <InfoBox>
             <div className='flex items-center justify-between flex-col sm:flex-row'>
                 <div className={weatherLocationStyles}>
                     <p className='text-xl sm:text-lg font-bold mr-3'>{cityName}</p>
                     <div className='flex relative items-center text-slate-400 min-w-0 sm:flex-1'>
                         <p className={countryStyles}>{country}</p>
-                        <div className='w-5 h-5 sm:w-4 sm:h-4 mr-2'>
-                            <FaLocationArrow className='min-w-4 min-h-4' />
+                        <div className='w-5 h-5 sm:w-4 sm:h-4 md:mr-2'>
+                            <FaMapMarkerAlt className='w-full h-full min-w-4 min-h-4' />
                         </div>
                         <a style={{ contentVisibility: 'hidden' }}
                             rel='noreferrer' target="_blank"
@@ -45,7 +49,7 @@ export const BaseInfo: FC<Props> = ({ cityName, country, shortWeather, iconURL }
                     <img alt={shortWeather} src={iconURL} className='w-10' />
                 </div>
             </div>
-        </div>
+        </InfoBox>
     )
 }
 

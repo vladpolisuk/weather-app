@@ -1,16 +1,16 @@
-import React, { FC } from 'react'
+import React from 'react';
+import { useAppSelector } from '../../../../hooks/redux';
+import { getWeatherShortWeather } from '../../../../store/weatherReducer/selectors';
 
-interface Props {
-    weather: string;
-}
+export const CityShortWeather = () => {
+    const shortWeather = useAppSelector(getWeatherShortWeather);
 
-export const CityShortWeather: FC<Props> = ({ weather }) => {
     const shortWeatherStyles = `flex items-center justify-center bg-black/40 
             border-2 h-[28px] rounded-md h-full px-[8px] xs:mr-2`
 
     return (
         <div className={shortWeatherStyles}>
-            <p>{weather}</p>
+            <p>{shortWeather}</p>
         </div>
     )
 }

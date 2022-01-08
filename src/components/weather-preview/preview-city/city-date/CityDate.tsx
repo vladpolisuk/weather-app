@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
+import React from 'react';
+import { useAppSelector } from '../../../../hooks/redux';
+import { getWeatherLocalDate, getWeatherLocalTime } from '../../../../store/weatherReducer/selectors';
 
-interface Props {
-    date: string;
-    time: string;
-}
+export const CityDate = () => {
+    const date = useAppSelector(getWeatherLocalDate);
+    const time = useAppSelector(getWeatherLocalTime);
 
-export const CityDate: FC<Props> = ({ date, time }) => {
     const dateStyles = `rounded-l-full bg-white flex 
             items-center justify-center px-3 pl-4 py-[2px] mr-1`;
 

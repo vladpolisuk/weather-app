@@ -1,13 +1,13 @@
-import React, { FC } from 'react'
+import React from 'react'
+import { useAppSelector } from '../../../../hooks/redux'
+import { getWeatherIconUrl, getWeatherShortWeather } from '../../../../store/weatherReducer/selectors'
 
-interface Props {
-    iconUrl: string;
-    description?: string;
-}
+export const WeatherIcon = () => {
+    const iconUrl = useAppSelector(getWeatherIconUrl);
+    const shortWeather = useAppSelector(getWeatherShortWeather);
 
-export const WeatherIcon: FC<Props> = ({ iconUrl, description }) => {
     return (
-        <div aria-label={description} className='w-[80px] h-[70px] bg-no-repeat bg-center bg-cover'
+        <div aria-label={shortWeather} className='w-[80px] h-[70px] bg-no-repeat bg-center bg-cover'
             style={{ backgroundImage: `url(${iconUrl})` }}>
         </div>
     )

@@ -18,7 +18,7 @@ export const SearchPanel = () => {
                         justify-center rounded-full hover:shadow-[0_0_0_2px_#454545] focus:shadow-[0_0_0_2px_#454545] 
                         outline-none hover:bg-black/70 active:scale-95 active:shadow-[0_0_0_2px_#505050]`
 
-    const formStyles = `xl:sticky xl:top-0 flex align-items justify-between h-[40px] box-content pt-8 pb-8 xl:pt-10 xl:pb-6 px-8 `
+    const formStyles = `flex align-items justify-between h-[40px] box-content px-8 pt-8 pb-8 lg:pt-10 lg:pb-6 lg:sticky lg:top-0`
 
     return (
         <Formik initialValues={{ cityName: '' }} onSubmit={onSubmit} >
