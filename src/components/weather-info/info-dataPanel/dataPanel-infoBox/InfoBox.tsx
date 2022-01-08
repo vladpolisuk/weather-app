@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes } from 'react'
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = HTMLAttributes<HTMLDivElement>
 
 export const InfoBox: FC<Props> = ({ children, className }) => {
     return (

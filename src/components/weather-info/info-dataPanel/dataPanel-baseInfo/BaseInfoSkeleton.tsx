@@ -1,6 +1,6 @@
 export const BaseInfoSkeleton = () => {
     const skeletonStyles = `animate-pulse bg-white/20 px-5 py-3 
-            rounded-md flex items-center justify-between w-full mb-3`
+            rounded-md flex items-center justify-between w-full mb-4`
 
     return (
         <div className={skeletonStyles}>

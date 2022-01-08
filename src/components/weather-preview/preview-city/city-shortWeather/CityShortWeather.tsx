@@ -6,7 +6,7 @@ export const CityShortWeather = () => {
     const shortWeather = useAppSelector(getWeatherShortWeather);
 
     const shortWeatherStyles = `flex items-center justify-center bg-black/40 
-            border-2 h-[28px] rounded-md h-full px-[8px] xs:mr-2`
+            border-2 h-[28px] rounded-md h-full px-[8px] xs:mr-2 select-none`
 
     return (
         <div className={shortWeatherStyles}>

@@ -14,7 +14,7 @@ export const BaseInfo = () => {
     const shortWeather = useAppSelector(getWeatherShortWeather);
 
     const shortWeatherStyles = `bg-white/90 text-black/90 font-bold px-2 pb-[2px] 
-                    rounded mr-1 text-[14px] leading-[1.5] xs:text-[16px]`;
+                    rounded mr-1 text-[14px] leading-[1.5] xs:text-[16px] select-none`;
 
     const countryStyles = `hidden xs:inline text-lg font-thin mr-1 underline 
                     decoration-1 truncate`

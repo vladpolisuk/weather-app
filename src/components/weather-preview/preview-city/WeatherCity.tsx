@@ -25,7 +25,7 @@ export const WeatherCity = () => {
             <div className={weatherCityTopStyles}>
                 <WithSkeleton
                     condition={isLoaded}
-                    className="h-12 bg-white/20 w-64 rounded mr-2">
+                    className="h-14 bg-white/20 w-64 rounded mr-2">
                     <CityName />
                 </WithSkeleton>
 
@@ -38,19 +38,19 @@ export const WeatherCity = () => {
             <div className={weatherCityBottomStyles}>
                 <WithSkeleton
                     condition={isLoaded}
-                    className='w-36 h-6 bg-white/20 rounded mt-2 mb-3 xs:mr-2 xs:mb-2 xs:mb-0'>
+                    className='w-36 h-8 bg-white/20 rounded mb-3 xs:mr-2 xs:mb-2 xs:mb-0'>
                     <CityDate />
                 </WithSkeleton>
 
                 <WithSkeleton
                     condition={isLoaded}
-                    className="h-6 bg-white/20 w-16 rounded mt-2 mr-2">
+                    className="h-8 bg-white/20 w-16 rounded mr-2">
                     <CityShortWeather />
                 </WithSkeleton>
 
                 <WithSkeleton
                     condition={isLoaded}
-                    className='h-6 bg-white/20 w-10 rounded mt-2'>
+                    className='h-8 bg-white/20 w-10 rounded'>
                     <CurrentTemperature />
                 </WithSkeleton>
             </div>
