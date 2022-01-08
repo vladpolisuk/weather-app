@@ -5,8 +5,10 @@ import {
     getWeatherIconUrl, getWeatherShortWeather
 } from '../../../store/weatherReducer/selectors'
 import { WithCustomSkeleton } from '../../weather-withCustomSkeleton/WithCustomSkeleton'
+import { WithSkeleton } from '../../weather-withSkeleton/WithSkeleton'
 import { BaseInfo } from './dataPanel-baseInfo/BaseInfo'
 import { BaseInfoSkeleton } from './dataPanel-baseInfo/BaseInfoSkeleton'
+import { TodayForecast } from './dataPanel-todayForecast/TodayForecast'
 
 export const DataPanel = () => {
     const cityName = useAppSelector(getWeatherCityName);
@@ -26,24 +28,12 @@ export const DataPanel = () => {
                         cityName={cityName}
                         shortWeather={shortWeather} />
                 </WithCustomSkeleton>
-            </div>
-        </div>
-    )
-}
 
-const Skeleton = () => {
-    const skeletonStyles = `'animate-pulse bg-white/20 px-5 py-3 rounded-md 
-            flex items-center justify-between w-full max-w-[600px]'z`
-
-    return (
-        <div className={skeletonStyles}>
-            <div className='flex items-start flex-col sm:items-center sm:flex-row'>
-                <div className='animate-pulse bg-white/10 w-24 h-8 rounded mb-2 sm:mb-0 sm:mr-2'></div>
-                <div className='animate-pulse bg-white/10 w-16 h-8 rounded'></div>
-            </div>
-            <div className='flex items-end flex-col sm:items-center sm:flex-row'>
-                <div className='animate-pulse bg-white/10 w-8 h-8 rounded mb-2 sm:mb-0 sm:mr-2 xs:w-24 sm:w-32'></div>
-                <div className='animate-pulse bg-white/10 w-8 h-8 rounded'></div>
+                <WithSkeleton
+                    condition={isLoaded}
+                    className='bg-white/20 mt-4 h-24 w-full rounded-md'>
+                    <TodayForecast />
+                </WithSkeleton>
             </div>
         </div>
     )

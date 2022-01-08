@@ -1,9 +1,11 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import { forecastReducer } from './forecastReducer/reducer';
 import { weatherReducer } from './weatherReducer/reducer';
 
 export const rootReducer = combineReducers({
 	weather: weatherReducer,
+	forecast: forecastReducer,
 });
 
 declare global {

@@ -1,13 +1,14 @@
 import { WeatherActionsType } from './actions';
 
 export type WeatherState = {
-	error: string;
 	region: string;
 	country: string;
 	cityName: string;
+	isLoaded: boolean;
 	localDate: string;
 	localTime: string;
 	wallpaper: string;
+	isLoading: boolean;
 	shortRegion: string;
 	shortWeather: string;
 	weatherIconUrl: string;
@@ -16,5 +17,5 @@ export type WeatherState = {
 	currentTemperatureC: number;
 };
 
-export type WeatherType = Omit<WeatherState, 'wallpaper' | 'error'>;
+export type WeatherType = Omit<WeatherState, 'wallpaper' | 'error' | 'isLoaded' | 'isLoading'>;
 export type WeatherReducer = (state: WeatherState | undefined, actions: WeatherActionsType) => WeatherState;

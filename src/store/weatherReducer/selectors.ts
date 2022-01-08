@@ -1,5 +1,13 @@
 import { AppState } from '../models';
 
+export const getWeatherIsLoaded = (state: AppState) => {
+	return state.weather.isLoaded;
+};
+
+export const getWeatherIsLoading = (state: AppState) => {
+	return state.weather.isLoading;
+};
+
 export const getWeatherWallpaperUrl = (state: AppState) => {
 	return state.weather.wallpaper;
 };
@@ -28,6 +36,6 @@ export const getWeatherIconUrl = (state: AppState) => {
 	return state.weather.weatherIconUrl;
 };
 
-export const getCurrentTemperatureC = (state: AppState) => {
+export const getWeatherCurrentTemperatureC = (state: AppState) => {
 	return state.weather.currentTemperatureC;
 };
