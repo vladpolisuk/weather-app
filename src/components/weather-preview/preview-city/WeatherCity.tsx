@@ -31,7 +31,7 @@ export const WeatherCity = () => {
 
                 <WithSkeleton
                     condition={isLoaded}
-                    className="h-12 bg-white/20 w-12 rounded-md mb-3 xl:mb-0">
+                    className="h-14 bg-white/20 w-14 rounded-md mb-3 xl:mb-0">
                     <WeatherIcon />
                 </WithSkeleton>
             </div>

@@ -9,7 +9,7 @@ interface Props {
 
 export const HourForecast: FC<Props> = ({ temperatureC, hourTime, iconUrl, shortWeather }) => {
     const hourForecastStyles = `flex items-center justify-between bg-black/20 
-            px-3 py-1 w-full mb-2 rounded hover:bg-black/30 active:bg-black/30`;
+            px-3 py-1 w-full mb-2 rounded hover:bg-black/25 active:bg-black/25`;
 
     return (
         <li className={hourForecastStyles}>

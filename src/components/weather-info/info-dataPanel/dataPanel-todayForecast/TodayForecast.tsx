@@ -9,7 +9,6 @@ import {
 } from '../../../../store/forecastReducer/selectors';
 import { getWeatherCityName, getWeatherIsLoaded } from '../../../../store/weatherReducer/selectors';
 import { InfoBox } from '../dataPanel-infoBox/InfoBox';
-import { DayOfWeek } from './todayForecast-dayOfWeek/DayOfWeek';
 import { ListOfHourlyForecast } from './todayForecast-listOfHourlyForecast/ListOfHourlyForecast';
 
 export const TodayForecast = () => {
@@ -35,7 +34,7 @@ export const TodayForecast = () => {
     return (
         <InfoBox className='pb-10'>
             <div className='flex items-center justify-between mb-3'>
-                <DayOfWeek />
+                <p className='font-bold text-lg'>Today</p>
                 <div className='flex'>
                     <div className='flex items-center mr-2'>
                         <FaArrowDown className='mr-[2px]' color='#6868ff' />
