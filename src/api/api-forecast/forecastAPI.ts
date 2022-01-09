@@ -1,15 +1,17 @@
+import { pullOutThreeDayForecastData } from '../../tools/api/api-forecast/pullOutThreeDayForecastData';
 import { pullOutTodayForecastData } from '../../tools/api/api-forecast/pullOutTodayForecastData';
 import { baseInstance } from '../instances';
 
 class ForecastAPI {
-	private successfulResponse({ data }: any) {
-		const pullOutedTodayForecastData = pullOutTodayForecastData(data);
-		return pullOutedTodayForecastData;
-	}
-
 	getTodayForecastByCityName(cityName: string) {
 		const response = baseInstance.get(`/forecast.json?q=${cityName}`);
-		const result = response.then(this.successfulResponse);
+		const result = response.then(pullOutTodayForecastData);
+		return result;
+	}
+
+	getThreeDayForecast(cityName: string) {
+		const response = baseInstance.get(`/forecast.json?q=${cityName}&days=3`);
+		const result = response.then(pullOutThreeDayForecastData);
 		return result;
 	}
 }

@@ -1,6 +1,6 @@
 import { WeatherType } from '../../../store/weatherReducer/models';
 
-export const pullOutWeatherData = (data: any): WeatherType => {
+export const pullOutWeatherData = ({ data }: any): WeatherType => {
 	const {
 		location: { name, region, country, tz_id, localtime },
 		current: {

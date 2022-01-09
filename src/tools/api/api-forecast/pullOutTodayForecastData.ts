@@ -17,7 +17,7 @@ export const pullOutTodayForecastData = ({ data }: any): TodayForecast => {
 		const formattedHourTime = time.split(' ')[1];
 
 		return {
-			icon,
+			iconUrl: icon,
 			shortWeather: text,
 			temperatureC: temp_c,
 			hour: formattedHourTime,

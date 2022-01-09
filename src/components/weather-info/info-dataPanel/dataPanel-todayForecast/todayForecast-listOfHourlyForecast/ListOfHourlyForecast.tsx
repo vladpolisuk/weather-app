@@ -6,10 +6,10 @@ import { HourForecast } from '../todayForecast-hourForecast/HourForecast'
 export const ListOfHourlyForecast = () => {
     const hourlyForecast = useAppSelector(getForecastTodayHourlyForecast);
 
-    const listOfHourlyForecast = hourlyForecast.map(({ icon, temperatureC, hour, shortWeather }) => {
+    const listOfHourlyForecast = hourlyForecast.map(({ iconUrl, temperatureC, hour, shortWeather }) => {
         return <HourForecast
-            iconUrl={icon}
             hourTime={hour}
+            iconUrl={iconUrl}
             temperatureC={temperatureC}
             shortWeather={shortWeather}
             key={`hour_forecast_${Date.now() * Math.random()}`} />

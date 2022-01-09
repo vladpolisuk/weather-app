@@ -3,11 +3,6 @@ import { getRandomCityName } from '../../tools/api/getRandomCityName';
 import { baseInstance, weatherWallpaperInstance } from '../instances';
 
 class WeatherAPI {
-	private successfulResponse({ data }: any) {
-		const pullOutedWeatherData = pullOutWeatherData(data);
-		return pullOutedWeatherData;
-	}
-
 	async getRandomWeather() {
 		const randomCity = getRandomCityName();
 		return this.getWeatherByCityName(randomCity);
@@ -15,7 +10,7 @@ class WeatherAPI {
 
 	async getWeatherByCityName(cityName: string) {
 		const response = baseInstance.get(`/current.json?q=${cityName}`);
-		const result = response.then(this.successfulResponse);
+		const result = response.then(pullOutWeatherData);
 		return result;
 	}
 
