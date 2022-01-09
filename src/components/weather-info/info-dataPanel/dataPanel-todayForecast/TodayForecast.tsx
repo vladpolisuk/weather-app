@@ -33,7 +33,7 @@ export const TodayForecast = () => {
             focus:shadow-[0_0_0_2px_#333] active:shadow-[0_0_0_2px_#333333] rounded-b`
 
     return (
-        <InfoBox className='relative pb-10'>
+        <InfoBox className='pb-10'>
             <div className='flex items-center justify-between mb-3'>
                 <DayOfWeek />
                 <div className='flex'>

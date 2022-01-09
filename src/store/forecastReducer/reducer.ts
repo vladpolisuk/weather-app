@@ -12,15 +12,16 @@ export const initialState: ForecastState = {
 		minTemperatureC: 0,
 		avgTemperatureC: 0,
 	},
+	threeDayForecast: [],
 };
 
 export const forecastReducer: ForecastReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ForecastActions.SET_TODAY_FORECAST:
-			return {
-				...state,
-				todayForecast: action.payload,
-			};
+			return { ...state, todayForecast: action.payload };
+
+		case ForecastActions.SET_THREE_DAY_FORECAST:
+			return { ...state, threeDayForecast: action.payload };
 
 		default:
 			return state;
@@ -31,5 +32,12 @@ export const getTodayForecast = (cityName: string): ThunkType<ForecastActionsTyp
 	return async (dispatch) => {
 		const todayForecast = await forecastAPI.getTodayForecastByCityName(cityName);
 		dispatch(forecastActions.setWeatherData(todayForecast));
+	};
+};
+
+export const getThreeDayForecast = (cityName: string): ThunkType<ForecastActionsType> => {
+	return async (dispatch) => {
+		const threeDayForecast = await forecastAPI.getThreeDayForecast(cityName);
+		dispatch(forecastActions.setThreeDayForecast(threeDayForecast));
 	};
 };

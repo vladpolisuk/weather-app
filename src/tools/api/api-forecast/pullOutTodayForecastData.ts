@@ -1,6 +1,6 @@
 import { HourForecast, TodayForecast } from '../../../store/forecastReducer/models';
 
-export const pullOutTodayForecastData = (data: any): TodayForecast => {
+export const pullOutTodayForecastData = ({ data }: any): TodayForecast => {
 	const {
 		hour,
 		day: { maxtemp_c, mintemp_c, avgtemp_c },

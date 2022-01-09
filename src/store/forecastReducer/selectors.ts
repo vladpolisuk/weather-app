@@ -11,3 +11,7 @@ export const getForecastTodayMaxTemperatureC = (state: AppState) => {
 export const getForecastTodayMinTemperatureC = (state: AppState) => {
 	return state.forecast.todayForecast.minTemperatureC;
 };
+
+export const getForecastThreeDayForecast = (state: AppState) => {
+	return state.forecast.threeDayForecast;
+};

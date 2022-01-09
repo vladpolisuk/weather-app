@@ -2,7 +2,7 @@ import React from 'react'
 
 export const TodayForecastSkeleton = () => {
     return (
-        <div className='flex flex-col animate-pulse bg-white/20 w-full rounded-md px-5 py-3'>
+        <div className='flex flex-col animate-pulse bg-white/20 w-full rounded-md px-5 py-3 mb-4'>
             <div className='flex items-center justify-between mb-3'>
                 <div className='animate-pulse w-20 h-7 bg-white/30 rounded'></div>
                 <div className='flex items-center justify-center w-fit'>
