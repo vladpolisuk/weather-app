@@ -19,8 +19,8 @@ export const ListOfMinMaxAvgForecast: FC<Props> = ({ minMaxAvgForecast }) => {
         if (temperatureScale === 'Avg') temperatureScaleIcon = <FaSort className='text-yellow-500 mr-1 w-[15px] h-[15px]' />;
         if (temperatureScale === 'Max') temperatureScaleIcon = <FaArrowUp className='text-red-500 mr-1 w-[15px] h-[15px]' />;
 
-        const forecastStyles = `flex items-center justify-between bg-black/10 
-                w-full sm-1 sm:mb-2 rounded px-2 py-1 hover:bg-black/20 active:bg-black/20`
+        const forecastStyles = `flex items-center justify-between bg-black/10 w-full 
+                sm-1 mb-1 sm:mb-2 rounded px-2 py-1 hover:bg-black/20 active:bg-black/20`
 
         return (
             <li key={`forecast_${hourTime}_${shortWeather}`} className={forecastStyles}>
