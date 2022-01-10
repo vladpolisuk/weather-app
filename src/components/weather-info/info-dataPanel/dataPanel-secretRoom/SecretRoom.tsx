@@ -10,6 +10,7 @@ export const SecretRoom = () => {
         wallpaper.style.overflow = 'hidden';
         const weatherInfo = document.getElementById('weatherInfo') as HTMLElement;
         weatherInfo.style.position = 'absolute';
+        weatherInfo.style.height = '100vh';
         setIsOpenSecretRoom(true)
     }
 
@@ -18,6 +19,7 @@ export const SecretRoom = () => {
         let wallpaper = document.getElementById('wallpaper') as HTMLElement;
         wallpaper.style.overflow = 'overlay';
         const weatherInfo = document.getElementById('weatherInfo') as HTMLElement;
+        weatherInfo.style.height = 'auto';
         weatherInfo.style.position = 'relative';
     }
 
