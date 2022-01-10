@@ -12,7 +12,9 @@ export const pullOutThreeDayForecastData = ({ data }: any): ThreeDayForecast => 
 		} = dayForecast;
 
 		const dayOfWeek = getDayOfWeek(date);
-		const time = `${date} ${new Date().getHours()}:${new Date().getMinutes()}`;
+		const minutes = new Date().getMinutes();
+		const hours = new Date().getHours();
+		const time = `${date} ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
 
 		const minTempForecast = hour.find(({ temp_c }: any) => temp_c === mintemp_c);
 		const avgTempForecast = { time, temp_c: avgtemp_c, condition };
