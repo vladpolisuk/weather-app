@@ -36,8 +36,8 @@ export const SimilarCityName: FC<Props> = ({ cityName, country, ...buttonProps }
         else if (event.keyCode === 8) onFocusSearchInput(event)
     }
 
-    const similarCityNameButtonStyles = `outline-none flex items-center justify-between 
-            w-full px-4 py-2 focus:bg-white/10 hover:bg-white/10 active:bg-white/10`
+    const similarCityNameButtonStyles = `outline-none w-full px-4 py-2 
+            focus:bg-white/10 hover:bg-white/10 active:bg-white/10`
 
     const searchHelpOptionStyles = `w-full bg-black/70 mb-[1px]`
 
@@ -49,8 +49,12 @@ export const SimilarCityName: FC<Props> = ({ cityName, country, ...buttonProps }
                 onKeyDown={onKeyDown}
                 className={similarCityNameButtonStyles}
                 aria-label={`find ${cityName}, ${country}`}>
-                <p className='mr-2'>{cityName}</p>
-                <p className='text-white/70'>{country}</p>
+                <span className='max-w-full flex items-center justify-start'>
+                    <p className='mr-2 whitespace-nowrap'>{cityName},</p>
+                    <p className='text-white/70 truncate'>
+                        {country}
+                    </p>
+                </span>
             </button>
         </li>
     )
