@@ -6,7 +6,7 @@ const WeatherInfo = () => {
     const infoStyles = `flex flex-col w-full lg:overflow-hidden shadow-lg bg-black/40 backdrop-blur-xl`
 
     return (
-        <div className={infoStyles}>
+        <div id='weatherInfo' className={infoStyles}>
             <SearchPanel />
             <DataPanel />
         </div>

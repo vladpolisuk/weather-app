@@ -4,6 +4,7 @@ import { getWeatherIsLoaded } from '../../../store/weatherReducer/selectors'
 import { WithCustomSkeleton } from '../../weather-withCustomSkeleton/WithCustomSkeleton'
 import { BaseInfo } from './dataPanel-baseInfo/BaseInfo'
 import { BaseInfoSkeleton } from './dataPanel-baseInfo/BaseInfoSkeleton'
+import { SecretRoom } from './dataPanel-secretRoom/SecretRoom'
 import { ThreeDaysForecast } from './dataPanel-threeDayForecast/ThreeDaysForecast'
 import { ThreeDaysForecastSkeleton } from './dataPanel-threeDayForecast/ThreeDaysForecastSkeleton'
 import { TodayForecast } from './dataPanel-todayForecast/TodayForecast'
@@ -32,6 +33,8 @@ export const DataPanel = () => {
                     skeleton={<ThreeDaysForecastSkeleton />}>
                     <ThreeDaysForecast />
                 </WithCustomSkeleton>
+
+                <SecretRoom />
             </div>
         </div>
     )

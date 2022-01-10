@@ -21,11 +21,13 @@ const WeatherWallpaper: FC = ({ children }) => {
     const backgroundImage = wallpaperUrl ? `url(${wallpaperUrl})` : '';
 
     return (
-        <div className={parentStyles} style={{ backgroundImage, overflow: 'overlay' }}>
+        <main id='wallpaper'
+            className={parentStyles}
+            style={{ backgroundImage, overflow: 'overlay' }}>
             <div className={childrenStyles}>
                 {children}
             </div>
-        </div>
+        </main>
     )
 }
 
