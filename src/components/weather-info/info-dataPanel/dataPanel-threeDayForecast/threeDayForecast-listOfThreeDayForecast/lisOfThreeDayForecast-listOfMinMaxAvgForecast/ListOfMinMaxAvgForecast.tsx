@@ -30,7 +30,9 @@ export const ListOfMinMaxAvgForecast: FC<Props> = ({ minMaxAvgForecast }) => {
                     {temperatureScaleIcon}
                     <p className='text-[15px] sm:text-base'>{temperatureC}°C</p>
                 </div>
-                <p className='text-[15px] sm:text-base'>{hourTime}</p>
+                <time dateTime={hourTime} className='text-[15px] sm:text-base'>
+                    {hourTime}
+                </time>
             </li>
         )
     })

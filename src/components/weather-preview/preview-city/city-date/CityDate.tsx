@@ -15,14 +15,16 @@ export const CityDate = () => {
     return (
         <div className='flex mb-3 xs:mr-2 xs:mb-0'>
             <div className={dateStyles}>
-                <p className='text-[14px] leading-6 font-bold text-black/80'>
+                <time dateTime={date} className='text-[14px] 
+                    leading-6 font-bold text-black/80'>
                     {date}
-                </p>
+                </time>
             </div>
             <div className={timeStyles}>
-                <p className='text-[14px] leading-6 font-bold text-black/80'>
+                <time dateTime={time} className='text-[14px] 
+                    leading-6 font-bold text-black/80'>
                     {time}
-                </p>
+                </time>
             </div>
         </div>
     )

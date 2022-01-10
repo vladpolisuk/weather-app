@@ -19,9 +19,10 @@ export const HourForecast: FC<Props> = ({ temperatureC, hourTime, iconUrl, short
                     {temperatureC}°C
                 </p>
             </div>
-            <p className='font-bold mr-1'>
+            <time dateTime={hourTime}
+                className='font-bold mr-1'>
                 {hourTime}
-            </p>
+            </time>
         </li>
     )
 }
