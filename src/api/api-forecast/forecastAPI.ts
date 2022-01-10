@@ -3,13 +3,13 @@ import { pullOutTodayForecastData } from '../../tools/api/api-forecast/pullOutTo
 import { baseInstance } from '../instances';
 
 class ForecastAPI {
-	getTodayForecastByCityName(cityName: string) {
+	async getTodayForecastByCityName(cityName: string) {
 		const response = baseInstance.get(`/forecast.json?q=${cityName}`);
 		const result = response.then(pullOutTodayForecastData);
 		return result;
 	}
 
-	getThreeDayForecast(cityName: string) {
+	async getThreeDayForecast(cityName: string) {
 		const response = baseInstance.get(`/forecast.json?q=${cityName}&days=3`);
 		const result = response.then(pullOutThreeDayForecastData);
 		return result;

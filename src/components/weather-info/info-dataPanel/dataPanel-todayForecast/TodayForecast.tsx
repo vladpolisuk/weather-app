@@ -36,7 +36,7 @@ export const TodayForecast = () => {
             <div className='flex items-center justify-between mb-3'>
                 <p className='font-bold text-lg'>Today</p>
                 <div className='flex'>
-                    <div className='flex items-center mr-2'>
+                    <div className='flex items-center mr-3'>
                         <FaArrowDown className='mr-[2px]' color='#6868ff' />
                         <p className='text-slate-200 font-bold text-blue-50'>
                             {minTemperatureC}°C
