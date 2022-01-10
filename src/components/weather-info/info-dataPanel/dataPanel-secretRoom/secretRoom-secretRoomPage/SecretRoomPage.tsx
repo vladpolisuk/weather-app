@@ -115,7 +115,7 @@ export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
                                 icon={<FaGithub className='w-5 h-5' />} />
 
                             <Contact
-                                contactName='Gmail'
+                                contactName='vladpolisuk159@gmail.com'
                                 link='mailto:vladpolisuk159@gmail.com'
                                 icon={<MdAlternateEmail className='w-5 h-5' />} />
 
