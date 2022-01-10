@@ -11,6 +11,7 @@ export type WeatherState = {
 	isLoading: boolean;
 	shortRegion: string;
 	shortWeather: string;
+	responseError: string;
 	weatherIconUrl: string;
 	lastUpdatedTime: string;
 	lastUpdatedDate: string;

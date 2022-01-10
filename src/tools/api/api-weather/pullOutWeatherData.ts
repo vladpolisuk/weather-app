@@ -25,6 +25,7 @@ export const pullOutWeatherData = ({ data }: any): WeatherType => {
 		weatherIconUrl,
 		lastUpdatedDate,
 		lastUpdatedTime,
+		responseError: '',
 		shortRegion: tz_id,
 		shortWeather: text,
 		currentTemperatureC: temp_c,

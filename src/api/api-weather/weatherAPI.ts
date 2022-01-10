@@ -10,12 +10,11 @@ class WeatherAPI {
 
 	async getWeatherByCityName(cityName: string) {
 		const response = baseInstance.get(`/current.json?q=${cityName}`);
-		const result = response.then(pullOutWeatherData);
+		const result = response.then(pullOutWeatherData).catch(() => '404 Not Found');
 		return result;
 	}
 
 	async getUrlOfWallpaper(wallpaperName: string, cityName: string) {
-		if (!wallpaperName || !cityName) return 'https://i.ibb.co/TDQhLvz/pug-dog-with-yellow-constructor.jpg';
 		const keyWord = wallpaperName.toLowerCase();
 		const location = cityName.toLowerCase();
 		const response = await weatherWallpaperInstance.get(`?${keyWord},${location}`);

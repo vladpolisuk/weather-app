@@ -5,6 +5,7 @@ export enum WeatherActions {
 	SET_IS_LOADED = 'SET_IS_LOADED',
 	SET_IS_LOADING = 'SET_IS_LOADING',
 	SET_WEATHER_DATA = 'SET_WEATHER_DATA',
+	SET_RESPONSE_ERROR = 'SET_RESPONSE_ERROR',
 	SET_WEATHER_WALLPAPER = 'SET_WEATHER_WALLPAPER',
 }
 
@@ -18,6 +19,8 @@ export const weatherActions = {
 	setWeatherIsLoaded: (mode: boolean) => ({ type: WeatherActions.SET_IS_LOADED, payload: mode } as const),
 
 	setWeatherIsLoading: (mode: boolean) => ({ type: WeatherActions.SET_IS_LOADING, payload: mode } as const),
+
+	setResponseError: (error: string) => ({ type: WeatherActions.SET_RESPONSE_ERROR, payload: error } as const),
 };
 
 export type WeatherActionsType = InferActionsTypes<typeof weatherActions>;

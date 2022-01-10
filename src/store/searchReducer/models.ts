@@ -2,6 +2,7 @@ import { SearchActionsType } from './actions';
 
 export interface SearchState {
 	similarCityNames: SimilarCityNames;
+	responseError: string;
 }
 
 export type SimilarCityNames = SimilarCityName[];

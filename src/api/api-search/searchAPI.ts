@@ -4,8 +4,9 @@ import { baseInstance } from '../instances';
 class SearchAPI {
 	async getSimilarCityNamesByCityName(cityName: string) {
 		const response = baseInstance.get(`/search.json?q=${cityName}`);
-		const result = response.then(pullOutSimilarCityNamesData);
-		return result;
+		const result = await response.then(pullOutSimilarCityNamesData);
+		if (result.length) return result;
+		else return 'Nothing found';
 	}
 }
 
