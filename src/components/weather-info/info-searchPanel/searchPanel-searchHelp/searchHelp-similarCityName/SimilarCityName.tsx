@@ -6,6 +6,12 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
 }
 
 export const SimilarCityName: FC<Props> = ({ cityName, country, ...buttonProps }) => {
+    const onFocusSearchInput = (event: KeyboardEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        const searchInput = document.getElementById('searchInput');
+        searchInput?.focus();
+    }
+
     const onArrowDown = (event: KeyboardEvent<HTMLButtonElement>) => {
         event.preventDefault()
         const similarCities = document.getElementById('similarCities');
@@ -27,6 +33,7 @@ export const SimilarCityName: FC<Props> = ({ cityName, country, ...buttonProps }
     const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
         if (event.key === 'ArrowDown') onArrowDown(event)
         else if (event.key === 'ArrowUp') onArrowUp(event)
+        else if (event.keyCode === 8) onFocusSearchInput(event)
     }
 
     const similarCityNameButtonStyles = `outline-none flex items-center justify-between 
