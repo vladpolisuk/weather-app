@@ -8,11 +8,9 @@ import { store } from './store/redux';
 
 const AppProvider = () => {
 	return (
-		<React.StrictMode>
-			<Provider store={store}>
-				<App />
-			</Provider>
-		</React.StrictMode>
+		<Provider store={store}>
+			<App />
+		</Provider>
 	)
 }
 
