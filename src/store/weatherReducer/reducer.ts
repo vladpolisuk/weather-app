@@ -56,6 +56,14 @@ const setWeatherData = (
 	dispatch(weatherActions.setWeatherIsLoaded(true));
 };
 
+const setGeolocationData = async (
+	dispatch: AppThunkDispatch<WeatherActionsType>,
+	{ coords: { latitude, longitude } }: GeolocationPosition
+) => {
+	const geolocationState = await weatherAPI.getGeolocationByCoords(latitude, longitude);
+	dispatch(getWeatherByCityName(geolocationState));
+};
+
 export const getRandomWeatherData = (): ThunkType<WeatherActionsType> => {
 	return async (dispatch) => {
 		dispatch(weatherActions.setWeatherIsLoading(true));
@@ -80,6 +88,17 @@ export const getWeatherByCityName = (cityName: string): ThunkType<WeatherActions
 			dispatch(weatherActions.setWeatherIsLoading(false));
 			dispatch(weatherActions.setWeatherIsLoaded(true));
 		} else setWeatherData(dispatch, weatherData);
+	};
+};
+
+export const getWeatherByGeolocationData = (): ThunkType<WeatherActionsType> => {
+	return async (dispatch) => {
+		if (window.navigator.geolocation) {
+			window.navigator.geolocation.getCurrentPosition(
+				(geolocation) => setGeolocationData(dispatch, geolocation),
+				() => dispatch(getRandomWeatherData())
+			);
+		}
 	};
 };
 

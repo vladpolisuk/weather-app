@@ -1,6 +1,7 @@
+import { pullOutGeolocationData } from '../../tools/api/api-weather/pullOutGeolocationData';
 import { pullOutWeatherData } from '../../tools/api/api-weather/pullOutWeatherData';
 import { getRandomCityName } from '../../tools/api/getRandomCityName';
-import { baseInstance, weatherWallpaperInstance } from '../instances';
+import { baseInstance, geocodeInstanse, weatherWallpaperInstance } from '../instances';
 
 class WeatherAPI {
 	async getRandomWeather() {
@@ -11,6 +12,12 @@ class WeatherAPI {
 	async getWeatherByCityName(cityName: string) {
 		const response = baseInstance.get(`/current.json?q=${cityName}`);
 		const result = response.then(pullOutWeatherData).catch(() => '404 Not Found');
+		return result;
+	}
+
+	async getGeolocationByCoords(latitude: number, longitude: number) {
+		const response = await geocodeInstanse.get(`/reverse.php?lat=${latitude}&lon=${longitude}`);
+		const result = pullOutGeolocationData(response);
 		return result;
 	}
 

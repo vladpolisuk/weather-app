@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../hooks/redux";
-import { getRandomWeatherData } from "../../store/weatherReducer/reducer";
+import { getRandomWeatherData, getWeatherByGeolocationData } from "../../store/weatherReducer/reducer";
 import { getWeatherWallpaperUrl } from "../../store/weatherReducer/selectors";
 
 const WeatherWallpaper: FC = ({ children }) => {
@@ -9,7 +9,8 @@ const WeatherWallpaper: FC = ({ children }) => {
     const wallpaperUrl = useAppSelector(getWeatherWallpaperUrl)
 
     useEffect(() => {
-        dispatch(getRandomWeatherData())
+        if (window.navigator.geolocation) dispatch(getWeatherByGeolocationData())
+        else dispatch(getRandomWeatherData())
     }, [dispatch])
 
     const parentStyles = `h-auto bg-fixed bg-black/70 bg-cover overflow-auto 
