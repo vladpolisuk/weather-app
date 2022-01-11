@@ -23,7 +23,7 @@ export const SearchHelp: FC<Props> = ({ isActive, inputText, onSubmit, onBlur })
     }, [dispatch, inputText]);
 
     const searchHelpStyles = `absolute left-0 py-2 ml-2 mr-2 mt-2 rounded 
-            w-[-webkit-fill-available] bg-[#0c0c0ceb] backdrop-blur-md`
+            w-[-webkit-fill-available] w-[-moz-available] bg-[#0c0c0ceb] backdrop-blur-md`
 
     const similarCitiesStyles = `bg-white/5 py-[1px] flex flex-col 
             items-center justify-start`
