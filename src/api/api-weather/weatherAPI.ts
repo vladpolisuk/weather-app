@@ -1,4 +1,5 @@
 import { pullOutGeolocationData } from '../../tools/api/api-weather/pullOutGeolocationData';
+import { pullOutWallpaperData } from '../../tools/api/api-weather/pullOutWallpaperData';
 import { pullOutWeatherData } from '../../tools/api/api-weather/pullOutWeatherData';
 import { getRandomCityName } from '../../tools/api/getRandomCityName';
 import { baseInstance, geocodeInstanse, weatherWallpaperInstance } from '../instances';
@@ -10,8 +11,9 @@ class WeatherAPI {
 	}
 
 	async getWeatherByCityName(cityName: string) {
-		const response = baseInstance.get(`/current.json?q=${cityName}`);
-		const result = response.then(pullOutWeatherData).catch(() => '404 Not Found');
+		const loweredCityName = cityName.toLowerCase();
+		const response = baseInstance.get(`/current.json?q=${loweredCityName}`);
+		const result = await response.then(pullOutWeatherData).catch(() => '404 Not Found');
 		return result;
 	}
 
@@ -25,7 +27,8 @@ class WeatherAPI {
 		const keyWord = wallpaperName.toLowerCase();
 		const location = cityName.toLowerCase();
 		const response = await weatherWallpaperInstance.get(`?${keyWord},${location}`);
-		return response.request.responseURL;
+		const result = pullOutWallpaperData(response);
+		return result;
 	}
 }
 

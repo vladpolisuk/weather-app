@@ -4,14 +4,14 @@ import { baseInstance } from '../instances';
 
 class ForecastAPI {
 	async getTodayForecastByCityName(cityName: string) {
-		const response = baseInstance.get(`/forecast.json?q=${cityName}`);
-		const result = response.then(pullOutTodayForecastData);
+		const response = await baseInstance.get(`/forecast.json?q=${cityName}`);
+		const result = pullOutTodayForecastData(response);
 		return result;
 	}
 
 	async getThreeDayForecast(cityName: string) {
-		const response = baseInstance.get(`/forecast.json?q=${cityName}&days=3`);
-		const result = response.then(pullOutThreeDayForecastData);
+		const response = await baseInstance.get(`/forecast.json?q=${cityName}&days=3`);
+		const result = pullOutThreeDayForecastData(response);
 		return result;
 	}
 }
