@@ -33,7 +33,7 @@ export const SimilarCityName: FC<Props> = ({ cityName, country, ...buttonProps }
     const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
         if (event.key === 'ArrowDown') onArrowDown(event)
         else if (event.key === 'ArrowUp') onArrowUp(event)
-        else if (event.keyCode === 8) onFocusSearchInput(event)
+        else if (event.key === 'Backspace') onFocusSearchInput(event)
     }
 
     const similarCityNameButtonStyles = `outline-none w-full px-4 py-2 
@@ -51,9 +51,7 @@ export const SimilarCityName: FC<Props> = ({ cityName, country, ...buttonProps }
                 aria-label={`find ${cityName}, ${country}`}>
                 <span className='max-w-full flex items-center justify-start'>
                     <p className='mr-2 whitespace-nowrap'>{cityName},</p>
-                    <p className='text-white/70 truncate'>
-                        {country}
-                    </p>
+                    <p className='text-white/70 truncate'>{country}</p>
                 </span>
             </button>
         </li>

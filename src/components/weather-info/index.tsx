@@ -9,8 +9,8 @@ const WeatherInfo = () => {
         setIsFirefox(window.navigator.userAgent.includes('Firefox'))
     }, [])
 
-    const infoStyles = `flex flex-col w-full lg:overflow-hidden shadow-lg 
-            ${isFirefox ? 'bg-[#262626]' : 'backdrop-blur-xl bg-black/40'}`
+    const background = isFirefox ? 'bg-[#262626]' : 'backdrop-blur-xl bg-black/40'
+    const infoStyles = `flex flex-col w-full lg:overflow-hidden shadow-lg ${background}`
 
     return (
         <div id='weatherInfo' className={infoStyles}>

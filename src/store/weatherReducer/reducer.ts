@@ -58,8 +58,9 @@ const setWeatherData = (
 
 const setGeolocationData = async (
 	dispatch: AppThunkDispatch<WeatherActionsType>,
-	{ coords: { latitude, longitude } }: GeolocationPosition
+	geolocation: GeolocationPosition
 ) => {
+	const { coords: { latitude, longitude } } = geolocation;
 	const geolocationState = await weatherAPI.getGeolocationByCoords(latitude, longitude);
 	dispatch(getWeatherByCityName(geolocationState));
 };

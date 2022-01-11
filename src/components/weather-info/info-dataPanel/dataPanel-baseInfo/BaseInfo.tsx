@@ -14,16 +14,16 @@ export const BaseInfo = () => {
     const shortWeather = useAppSelector(getWeatherShortWeather);
 
     const shortWeatherStyles = `bg-white/90 text-black/90 font-bold px-2 pb-[2px] 
-                    rounded mr-1 text-[14px] leading-[1.5] xs:text-[16px] select-none`;
+            rounded mr-1 text-[14px] leading-[1.5] xs:text-[16px] select-none`;
 
-    const countryStyles = `hidden xs:inline text-lg font-thin mr-1 underline 
-                    decoration-1 truncate`
+    const countryStyles = `hidden text-lg font-thin mr-1  
+            decoration-1 underline truncate xs:inline`
 
-    const weatherStyles = `flex items-center justify-between w-full 
-                    min-w-fit sm:justify-center sm:w-[inherit]`
+    const weatherStyles = `flex items-center justify-between  
+            min-w-fit sm:justify-center w-full sm:w-[inherit]`
 
-    const weatherLocationStyles = `flex items-center min-w-0 justify-between 
-                    w-full sm:justify-start sm:w-[inherit] sm:mr-5`;
+    const weatherLocationStyles = `flex items-center justify-between 
+            w-full min-w-0 sm:justify-start sm:w-[inherit] sm:mr-5`;
 
     return (
         <InfoBox>

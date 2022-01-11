@@ -50,9 +50,11 @@ export const TodayForecast = () => {
                     </div>
                 </div>
             </div>
+
             <div className={`overflow-hidden mb-1 ${isShowMore ? 'max-h-full' : 'max-h-[168px]'}`}>
                 <ListOfHourlyForecast />
             </div>
+
             <button
                 onClick={toggleShowMoreForecast}
                 className={showMoreTodayForecastButtonStyles}>

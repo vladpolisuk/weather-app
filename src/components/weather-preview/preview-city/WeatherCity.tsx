@@ -11,14 +11,14 @@ import { WeatherIcon } from './city-weatherIcon/WeatherIcon'
 export const WeatherCity = () => {
     const isLoaded = useAppSelector(getWeatherIsLoaded);
 
-    const weatherCityStyles = ` mb-20 mt-5 px-4 flex flex-col items-center justify-center 
-                    xl:mt-0 lg:mb-36 xl:p-5 xl:items-start sm:justify-start`
+    const weatherCityStyles = `mb-20 mt-5 px-4 flex flex-col justify-center 
+            items-center xl:mt-0 lg:mb-36 xl:p-5 xl:items-start sm:justify-start`
 
-    const weatherCityTopStyles = `flex items-center flex-col-reverse mb-4 xl:flex-row 
-                    xl:justify-start sm:mb-4 md:mb-6 xs:mb-5`
+    const weatherCityTopStyles = `flex items-center flex-col-reverse mb-4 
+            xl:justify-start sm:mb-4 md:mb-6 xs:mb-5 xl:flex-row `
 
-    const weatherCityBottomStyles = `flex flex-col items-center justify-center w-full 
-                    xs:flex-row xl:justify-start`
+    const weatherCityBottomStyles = `flex flex-col items-center  
+            justify-center w-full xs:flex-row xl:justify-start`
 
     return (
         <div className={weatherCityStyles}>

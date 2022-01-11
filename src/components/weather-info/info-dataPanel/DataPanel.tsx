@@ -14,7 +14,7 @@ export const DataPanel = () => {
     const isLoaded = useAppSelector(getWeatherIsLoaded);
 
     return (
-        <div className='flex justify-center px-4 sm:pl-8 sm:pr-6 overflow-auto'>
+        <div className='flex justify-center px-4 overflow-auto sm:pl-8 sm:pr-6'>
             <div className='pb-6 px-2 w-full max-w-[600px] h-fit'>
                 <WithCustomSkeleton
                     condition={isLoaded}

@@ -16,6 +16,10 @@ declare global {
 	}
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeWithDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
+const devTools = process.env.NODE_ENV === "production"
+    ? applyMiddleware(thunkMiddleware)
+    : composeWithDevTools(applyMiddleware(thunkMiddleware));
+
+export const store = createStore(rootReducer, devTools);

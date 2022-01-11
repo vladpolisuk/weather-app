@@ -19,12 +19,15 @@ interface Props {
 }
 
 export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
-    const secretRoomStyles = `font-[rubik] flex absolute top-0 overflow-hidden
-            w-screen h-screen flex-col items-center justify-start
-            bg-gradient-to-tr from-[#d40e0e] to-purple-700 left-0`
+    const animatedStyles = `${isOpen ? 'absolute' : 'hidden'} top-0 left-0 w-screen h-screen`
 
-    const secretRoomHeaderStyles = `flex items-center justify-between
-            w-full px-2 py-1 sticky top-0 bg-black/10`
+    const secretRoomStyles = `font-[rubik] flex absolute top-0 overflow-hidden
+            w-screen h-screen flex-col items-center justify-start left-0
+            bg-gradient-to-tr from-[#d40e0e] to-purple-700 `
+
+    const secretRoomHeaderStyles = `flex items-center bg-black/10
+            w-full px-2 py-1 sticky top-0 justify-between`
+
 
     return (
         <Animated
@@ -34,11 +37,11 @@ export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
             style={{ zIndex: 100 }}
             animationInDuration={300}
             animationOutDuration={100}
-            className={`${isOpen ? 'absolute' : 'hidden'} 
-            top-0 left-0 w-screen h-screen`}>
+            className={animatedStyles}>
             <FocusLock>
                 <div className={secretRoomStyles}>
-                    <div style={{ zIndex: 110 }} className={secretRoomHeaderStyles}>
+                    <div style={{ zIndex: 110 }}
+                        className={secretRoomHeaderStyles}>
                         <h2 className='select-none font-bold text-xl px-5'>
                             vladislav124352
                         </h2>
@@ -46,6 +49,7 @@ export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
                             <FaTimesCircle className='w-8 h-8' />
                         </button>
                     </div>
+
                     <div className='overflow-auto w-full h-fit p-8'>
                         <div className='max-w-[700px] m-auto'>
                             <p className='mb-5 text-md break-words text-center md:text-left ml:text-lg xs:text-xl'>

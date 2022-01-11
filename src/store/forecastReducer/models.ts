@@ -8,11 +8,8 @@ export interface ForecastState {
 export type ThreeDayForecast = DayForecast[];
 
 export interface TodayForecast {
-	sunsetTime: number;
-	sunriseTime: number;
 	maxTemperatureC: number;
 	minTemperatureC: number;
-	avgTemperatureC: number;
 	hourlyForecast: HourForecast[];
 }
 
@@ -27,7 +24,7 @@ export interface MinMaxAvgForecast {
 	hourTime: string;
 	shortWeather: string;
 	temperatureC: number;
-	temperatureScale: string;
+	temperatureScale: 'Min' | 'Max' | 'Avg';
 }
 
 export interface HourForecast {

@@ -5,12 +5,9 @@ import { ForecastReducer, ForecastState } from './models';
 
 export const initialState: ForecastState = {
 	todayForecast: {
-		sunsetTime: 0,
-		sunriseTime: 0,
 		hourlyForecast: [],
 		maxTemperatureC: 0,
 		minTemperatureC: 0,
-		avgTemperatureC: 0,
 	},
 	threeDayForecast: [],
 };

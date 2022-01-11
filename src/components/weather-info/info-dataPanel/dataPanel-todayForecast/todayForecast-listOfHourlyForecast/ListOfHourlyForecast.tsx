@@ -6,7 +6,9 @@ import { HourForecast } from '../todayForecast-hourForecast/HourForecast'
 export const ListOfHourlyForecast = () => {
     const hourlyForecast = useAppSelector(getForecastTodayHourlyForecast);
 
-    const listOfHourlyForecast = hourlyForecast.map(({ iconUrl, temperatureC, hour, shortWeather }) => {
+    const listOfHourlyForecast = hourlyForecast.map((hourForecast) => {
+        const { iconUrl, temperatureC, hour, shortWeather } = hourForecast;
+
         return <HourForecast
             hourTime={hour}
             iconUrl={iconUrl}

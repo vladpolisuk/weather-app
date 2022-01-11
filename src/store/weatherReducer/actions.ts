@@ -16,11 +16,14 @@ export const weatherActions = {
 	setWeatherWallpaper: (weatherUrl: string) =>
 		({ type: WeatherActions.SET_WEATHER_WALLPAPER, payload: weatherUrl } as const),
 
-	setWeatherIsLoaded: (mode: boolean) => ({ type: WeatherActions.SET_IS_LOADED, payload: mode } as const),
+	setWeatherIsLoaded: (mode: boolean) =>
+		({ type: WeatherActions.SET_IS_LOADED, payload: mode } as const),
 
-	setWeatherIsLoading: (mode: boolean) => ({ type: WeatherActions.SET_IS_LOADING, payload: mode } as const),
+	setWeatherIsLoading: (mode: boolean) =>
+		({ type: WeatherActions.SET_IS_LOADING, payload: mode } as const),
 
-	setResponseError: (error: string) => ({ type: WeatherActions.SET_RESPONSE_ERROR, payload: error } as const),
+	setResponseError: (error: string) =>
+		({ type: WeatherActions.SET_RESPONSE_ERROR, payload: error } as const),
 };
 
 export type WeatherActionsType = InferActionsTypes<typeof weatherActions>;

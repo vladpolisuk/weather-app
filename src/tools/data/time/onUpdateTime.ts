@@ -1,6 +1,6 @@
 import { getFormattedTime } from './getFormattedTime';
 
-export const onUpdatedTime = (liveTime: string) => {
+export const onUpdateTime = (liveTime: string) => {
 	const hours = +liveTime.split(':')[0];
 	const minutes = +liveTime.split(':')[1];
 

@@ -34,3 +34,11 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+button {
+	user-select: none;
+}
+
+img {
+	user-select: none;
+}

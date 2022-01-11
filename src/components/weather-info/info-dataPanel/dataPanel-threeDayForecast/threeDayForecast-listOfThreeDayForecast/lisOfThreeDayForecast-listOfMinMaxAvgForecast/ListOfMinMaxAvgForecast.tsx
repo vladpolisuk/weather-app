@@ -6,6 +6,12 @@ interface Props {
     minMaxAvgForecast: MinMaxAvgForecast[];
 }
 
+const temperatureScaleIcons = {
+    'Min': <FaArrowDown className='text-blue-500 mr-1 w-[15px] h-[15px]' />,
+    'Avg': <FaSort className='text-yellow-500 mr-1 w-[15px] h-[15px]' />,
+    'Max': <FaArrowUp className='text-red-500 mr-1 w-[15px] h-[15px]' />
+}
+
 export const ListOfMinMaxAvgForecast: FC<Props> = ({ minMaxAvgForecast }) => {
     const lisOfMinMaxAvgForecast = minMaxAvgForecast.map(({
         iconUrl,
@@ -14,10 +20,7 @@ export const ListOfMinMaxAvgForecast: FC<Props> = ({ minMaxAvgForecast }) => {
         temperatureC,
         temperatureScale
     }) => {
-        let temperatureScaleIcon;
-        if (temperatureScale === 'Min') temperatureScaleIcon = <FaArrowDown className='text-blue-500 mr-1 w-[15px] h-[15px]' />;
-        if (temperatureScale === 'Avg') temperatureScaleIcon = <FaSort className='text-yellow-500 mr-1 w-[15px] h-[15px]' />;
-        if (temperatureScale === 'Max') temperatureScaleIcon = <FaArrowUp className='text-red-500 mr-1 w-[15px] h-[15px]' />;
+        let temperatureScaleIcon = temperatureScaleIcons[temperatureScale];
 
         const forecastStyles = `flex items-center justify-between bg-black/10 w-full 
                 sm-1 mb-1 sm:mb-2 rounded px-2 py-1 hover:bg-black/20 active:bg-black/20`

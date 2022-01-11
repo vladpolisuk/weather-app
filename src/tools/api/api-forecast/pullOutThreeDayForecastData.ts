@@ -1,4 +1,5 @@
 import { ThreeDayForecast } from '../../../store/forecastReducer/models';
+import { getFormattedTime } from '../../data/time/getFormattedTime';
 import { getDayOfWeek } from '../../getDayOfWeek';
 
 export const pullOutThreeDayForecastData = ({ data }: any): ThreeDayForecast => {
@@ -14,7 +15,9 @@ export const pullOutThreeDayForecastData = ({ data }: any): ThreeDayForecast => 
 		const dayOfWeek = getDayOfWeek(date);
 		const minutes = new Date().getMinutes();
 		const hours = new Date().getHours();
-		const time = `${date} ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
+		const formattedHours = hours < 10 ? `0${hours}` : hours;
+		const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes
+		const time = `${date} ${formattedHours}:${formattedMinutes}`;
 
 		let hourMinTempC = 1000;
 		let hourMaxTempC = -1000;
@@ -54,26 +57,21 @@ const getMinMaxAvgForecast = (
 	minTemperatureC: number,
 	avgTemperatureC: number,
 	maxTemperatureC: number
-) => {
-	return array.map((hourForecast: any) => {
-		const {
-			time,
-			temp_c,
-			condition: { text, icon },
-		} = hourForecast;
+) => array.map((hourForecast: any) => {
+	const { time, temp_c, condition: { text, icon } } = hourForecast;
+	const tempHourTime = time.split(' ')[1];
+	const formattedTime = getFormattedTime(tempHourTime);
 
-		const tempHourTime = time.split(' ')[1];
-		let temperatureScale = '';
-		if (minTemperatureC === temp_c) temperatureScale = 'Min';
-		if (avgTemperatureC === temp_c) temperatureScale = 'Avg';
-		if (maxTemperatureC === temp_c) temperatureScale = 'Max';
+	let temperatureScale = '';
+	if (minTemperatureC === temp_c) temperatureScale = 'Min';
+	if (avgTemperatureC === temp_c) temperatureScale = 'Avg';
+	if (maxTemperatureC === temp_c) temperatureScale = 'Max';
 
-		return {
-			iconUrl: icon,
-			temperatureScale,
-			shortWeather: text,
-			temperatureC: temp_c,
-			hourTime: tempHourTime,
-		};
-	});
-};
+	return {
+		iconUrl: icon,
+		temperatureScale,
+		shortWeather: text,
+		temperatureC: temp_c,
+		hourTime: formattedTime,
+	};
+});

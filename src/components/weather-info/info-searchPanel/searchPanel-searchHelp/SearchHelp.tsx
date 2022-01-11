@@ -22,11 +22,11 @@ export const SearchHelp: FC<Props> = ({ isActive, inputText, onSubmit, onBlur })
         if (inputText) dispatch(getSimilarCityNames(inputText));
     }, [dispatch, inputText]);
 
-    const searchHelpStyles = `absolute left-0 py-2 ml-2 mr-2 mt-2 rounded 
-            w-[-webkit-fill-available] w-[-moz-available] bg-[#0c0c0ceb] backdrop-blur-md`
+    const searchHelpStyles = `absolute left-0 py-2 ml-2 mr-2 mt-2 rounded bg-[#0c0c0ceb]
+            w-[-webkit-fill-available] w-[-moz-available] backdrop-blur-md`
 
-    const similarCitiesStyles = `bg-white/5 py-[1px] flex flex-col 
-            items-center justify-start`
+    const similarCitiesStyles = `bg-white/5 py-[1px] 
+            flex flex-col items-center justify-start`
 
     const similarCityNamesComponents = sililarCityNames.map(({ cityName, country }) => {
         const handleClick = (event: MouseEvent<HTMLButtonElement>) => onSubmit({ cityName: cityName });
