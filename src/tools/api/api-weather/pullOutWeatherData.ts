@@ -1,4 +1,5 @@
 import { WeatherType } from '../../../store/weatherReducer/models';
+import { getFormattedTime } from '../../data/time/getFormattedTime';
 
 export const pullOutWeatherData = ({ data }: any): WeatherType => {
 	const {
@@ -11,6 +12,7 @@ export const pullOutWeatherData = ({ data }: any): WeatherType => {
 	} = data;
 
 	const [localDate, localTime] = localtime.split(' ');
+	const formattedTime = getFormattedTime(localTime);
 	const [lastUpdatedDate, lastUpdatedTime] = last_updated.split(' ');
 	const weatherIconUrl = `https:${icon}`;
 
@@ -18,7 +20,6 @@ export const pullOutWeatherData = ({ data }: any): WeatherType => {
 		region,
 		country,
 		localDate,
-		localTime,
 		cityName: name,
 		weatherIconUrl,
 		lastUpdatedDate,
@@ -26,6 +27,7 @@ export const pullOutWeatherData = ({ data }: any): WeatherType => {
 		responseError: '',
 		shortRegion: tz_id,
 		shortWeather: text,
+		localTime: formattedTime,
 		currentTemperatureC: temp_c,
 	};
 
