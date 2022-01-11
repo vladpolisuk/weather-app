@@ -40,7 +40,6 @@ export const BaseInfo = () => {
                             className='absolute w-full h-full'
                             aria-label={`Go to ${country} on maps`}
                             href={`https://www.google.com/maps/place/${cityName}`}>
-                            Go to {country} on maps
                         </a>
                     </div>
                 </div>

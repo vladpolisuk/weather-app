@@ -7,8 +7,8 @@ export const SecretRoom = () => {
     const onOpenSecretRoom = (event: MouseEvent<HTMLButtonElement>) => {
         let wallpaper = document.getElementById('wallpaper') as HTMLElement;
         wallpaper.scrollTop = 0
-        wallpaper.style.overflow = 'hidden';
         const weatherInfo = document.getElementById('weatherInfo') as HTMLElement;
+        weatherInfo.style.overflow = 'hidden';
         weatherInfo.style.position = 'absolute';
         weatherInfo.style.height = '100vh';
         setIsOpenSecretRoom(true)
@@ -17,8 +17,8 @@ export const SecretRoom = () => {
     const onCloseSecretRoom = (event: MouseEvent<HTMLButtonElement>) => {
         setIsOpenSecretRoom(false)
         let wallpaper = document.getElementById('wallpaper') as HTMLElement;
-        wallpaper.style.overflow = 'overlay';
         const weatherInfo = document.getElementById('weatherInfo') as HTMLElement;
+        weatherInfo.style.overflow = 'auto';
         weatherInfo.style.height = 'auto';
         weatherInfo.style.position = 'relative';
     }

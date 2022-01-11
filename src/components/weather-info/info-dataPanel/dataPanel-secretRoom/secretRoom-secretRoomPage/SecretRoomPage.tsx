@@ -19,12 +19,12 @@ interface Props {
 }
 
 export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
-    const secretRoomStyles = `font-[rubik] flex absolute top-0 
+    const secretRoomStyles = `font-[rubik] flex absolute top-0 overflow-hidden
             w-screen h-screen flex-col items-center justify-start
             bg-gradient-to-tr from-[#d40e0e] to-purple-700 left-0`
 
-    const secretRoomHeaderStyles = `flex items-center justify-between 
-            w-full px-2 py-1 sticky top-0 bg-black/10 backdrop-blur-md`
+    const secretRoomHeaderStyles = `flex items-center justify-between
+            w-full px-2 py-1 sticky top-0 bg-black/10`
 
     return (
         <Animated
@@ -37,7 +37,7 @@ export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
             className={`${isOpen ? 'absolute' : 'hidden'} 
             top-0 left-0 w-screen h-screen`}>
             <FocusLock>
-                <div style={{ overflow: 'overlay' }} className={secretRoomStyles}>
+                <div className={secretRoomStyles}>
                     <div style={{ zIndex: 110 }} className={secretRoomHeaderStyles}>
                         <h2 className='select-none font-bold text-xl px-5'>
                             vladislav124352
@@ -46,84 +46,86 @@ export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
                             <FaTimesCircle className='w-8 h-8' />
                         </button>
                     </div>
-                    <div className='max-w-[700px] w-full h-fit p-8'>
-                        <p className='mb-5 text-md break-words text-center md:text-left ml:text-lg xs:text-xl'>
-                            {HelloEmoji} Hi, my name's {Vlad} and I... wait... do I know you? Yeah, I know you.
-                            I saw you in my other app {BestNotesApp}. How are you?
-                            How did you get here!? Okay, you don't have to answer, anyway I won't know...
-                            All right, this is my <b>new app!</b> {GOWeather}
-                        </p>
+                    <div className='overflow-auto w-full h-fit p-8'>
+                        <div className='max-w-[700px] m-auto'>
+                            <p className='mb-5 text-md break-words text-center md:text-left ml:text-lg xs:text-xl'>
+                                {HelloEmoji} Hi, my name's {Vlad} and I... wait... do I know you? Yeah, I know you.
+                                I saw you in my other app {BestNotesApp}. How are you?
+                                How did you get here!? Okay, you don't have to answer, anyway I won't know...
+                                All right, this is my <b>new app!</b> {GOWeather}
+                            </p>
 
-                        <p className='mb-4 text-md break-words text-center md:text-left ml:text-lg xs:text-xl'>
-                            Well, I'm frontend-developer and I made this web app.
-                            If you are interested in the sources, then here - {GOWeatherGitHub}
-                        </p>
+                            <p className='mb-4 text-md break-words text-center md:text-left ml:text-lg xs:text-xl'>
+                                Well, I'm frontend-developer and I made this web app.
+                                If you are interested in the sources, then here - {GOWeatherGitHub}
+                            </p>
 
-                        <hr className='mb-3' />
+                            <hr className='mb-3' />
 
-                        <div className='flex items-center justify-center xs:justify-start mb-2'>
-                            <p className='flex mr-2 font-bold text-lg xs:text-xl'>My stack</p>
-                            <BsStack className='w-5 h-5' />
+                            <div className='flex items-center justify-center xs:justify-start mb-2'>
+                                <p className='flex mr-2 font-bold text-lg xs:text-xl'>My stack</p>
+                                <BsStack className='w-5 h-5' />
+                            </div>
+
+                            <ul className='ml-5 mb-5'>
+                                <Technology
+                                    technologyName='React'
+                                    link='https://reactjs.org'
+                                    icon={<FaReact className='w-6 h-6 mr-2 text-cyan-400' />} />
+
+                                <Technology
+                                    technologyName='Redux'
+                                    link='https://redux.js.org/'
+                                    icon={<SiRedux className='w-6 h-6 mr-2 text-purple-600' />} />
+
+                                <Technology
+                                    link='https://www.typescriptlang.org/'
+                                    technologyName='TypeScript'
+                                    icon={<SiTypescript className='w-6 h-6 mr-2 text-blue-400' />} />
+
+                                <Technology
+                                    link='https://https://tailwindcss.com/'
+                                    technologyName='Tailwind.css'
+                                    icon={<SiTailwindcss className='w-6 h-6 mr-2 text-blue-500' />} />
+
+                                <Technology
+                                    technologyName='Formik'
+                                    link='https://formik.org/'
+                                    icon={<FaPlus className='w-5 h-5 ml-[3px] mr-[10px]' />} />
+                            </ul>
+
+                            <div className='flex items-center justify-center xs:justify-start mb-2'>
+                                <p className='flex mr-2 font-bold text-lg xs:text-xl'>My contacts</p>
+                                <FaPhoneAlt className='w-5 h-5' />
+                            </div>
+
+                            <ul className='pl-4'>
+                                <Contact
+                                    contactName='Telegram'
+                                    link='https://t.me/vladislav124352'
+                                    icon={<FaTelegram className='w-5 h-5' />} />
+
+                                <Contact
+                                    contactName='Facebook'
+                                    link='https://www.facebook.com/vladislav124352'
+                                    icon={<FaFacebook className='w-5 h-5' />} />
+
+                                <Contact
+                                    contactName='GitHub'
+                                    link='https://github.com/vladislav124352'
+                                    icon={<FaGithub className='w-5 h-5' />} />
+
+                                <Contact
+                                    contactName='vladpolisuk159@gmail.com'
+                                    link='mailto:vladpolisuk159@gmail.com'
+                                    icon={<MdAlternateEmail className='w-5 h-5' />} />
+
+                                <Contact
+                                    contactName='+7 (958) 680-39-72'
+                                    link='tel:+79586803972'
+                                    icon={<FaFacebook className='w-5 h-5' />} />
+                            </ul>
                         </div>
-
-                        <ul className='ml-5 mb-5'>
-                            <Technology
-                                technologyName='React'
-                                link='https://reactjs.org'
-                                icon={<FaReact className='w-6 h-6 mr-2 text-cyan-400' />} />
-
-                            <Technology
-                                technologyName='Redux'
-                                link='https://redux.js.org/'
-                                icon={<SiRedux className='w-6 h-6 mr-2 text-purple-600' />} />
-
-                            <Technology
-                                link='https://www.typescriptlang.org/'
-                                technologyName='TypeScript'
-                                icon={<SiTypescript className='w-6 h-6 mr-2 text-blue-400' />} />
-
-                            <Technology
-                                link='https://https://tailwindcss.com/'
-                                technologyName='Tailwind.css'
-                                icon={<SiTailwindcss className='w-6 h-6 mr-2 text-blue-500' />} />
-
-                            <Technology
-                                technologyName='Formik'
-                                link='https://formik.org/'
-                                icon={<FaPlus className='w-5 h-5 ml-[3px] mr-[10px]' />} />
-                        </ul>
-
-                        <div className='flex items-center justify-center xs:justify-start mb-2'>
-                            <p className='flex mr-2 font-bold text-lg xs:text-xl'>My contacts</p>
-                            <FaPhoneAlt className='w-5 h-5' />
-                        </div>
-
-                        <ul className='pl-4'>
-                            <Contact
-                                contactName='Telegram'
-                                link='https://t.me/vladislav124352'
-                                icon={<FaTelegram className='w-5 h-5' />} />
-
-                            <Contact
-                                contactName='Facebook'
-                                link='https://www.facebook.com/vladislav124352'
-                                icon={<FaFacebook className='w-5 h-5' />} />
-
-                            <Contact
-                                contactName='GitHub'
-                                link='https://github.com/vladislav124352'
-                                icon={<FaGithub className='w-5 h-5' />} />
-
-                            <Contact
-                                contactName='vladpolisuk159@gmail.com'
-                                link='mailto:vladpolisuk159@gmail.com'
-                                icon={<MdAlternateEmail className='w-5 h-5' />} />
-
-                            <Contact
-                                contactName='+7 (958) 680-39-72'
-                                link='tel:+79586803972'
-                                icon={<FaFacebook className='w-5 h-5' />} />
-                        </ul>
                     </div>
                 </div>
             </FocusLock>
