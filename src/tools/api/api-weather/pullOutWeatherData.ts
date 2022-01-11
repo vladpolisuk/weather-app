@@ -10,10 +10,8 @@ export const pullOutWeatherData = ({ data }: any): WeatherType => {
 		},
 	} = data;
 
-	const localDate = localtime.split(' ')[0];
-	const localTime = localtime.split(' ')[1];
-	const lastUpdatedDate = last_updated.split(' ')[0];
-	const lastUpdatedTime = last_updated.split(' ')[0];
+	const [localDate, localTime] = localtime.split(' ');
+	const [lastUpdatedDate, lastUpdatedTime] = last_updated.split(' ');
 	const weatherIconUrl = `https:${icon}`;
 
 	const result: WeatherType = {
