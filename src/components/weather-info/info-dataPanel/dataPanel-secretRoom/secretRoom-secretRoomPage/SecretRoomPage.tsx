@@ -110,11 +110,6 @@ export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
                                     icon={<FaTelegram className='w-5 h-5' />} />
 
                                 <Contact
-                                    contactName='Facebook'
-                                    link='https://www.facebook.com/vladislav124352'
-                                    icon={<FaFacebook className='w-5 h-5' />} />
-
-                                <Contact
                                     contactName='GitHub'
                                     link='https://github.com/vladislav124352'
                                     icon={<FaGithub className='w-5 h-5' />} />
@@ -123,11 +118,6 @@ export const SecretRoomPage: FC<Props> = ({ isOpen, onClose }) => {
                                     contactName='vladpolisuk159@gmail.com'
                                     link='mailto:vladpolisuk159@gmail.com'
                                     icon={<MdAlternateEmail className='w-5 h-5' />} />
-
-                                <Contact
-                                    contactName='+7 (958) 680-39-72'
-                                    link='tel:+79586803972'
-                                    icon={<FaFacebook className='w-5 h-5' />} />
                             </ul>
                         </div>
                     </div>
