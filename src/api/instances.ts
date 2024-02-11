@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const API_KEY = '236c75055b974355b82175426213112';
-export const GEOCODE_ACCESS_TOKEN = 'pk.ae35537228495b7708b98d774897a57b';
+export const GEOCODE_ACCESS_TOKEN = 'pk.3df8884c186577a7e7ea4ed6e0d0e228';
 
 export const baseInstance = axios.create({
 	baseURL: `https://api.weatherapi.com/v1`,
